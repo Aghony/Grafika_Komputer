@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafika Komputer</title>
+
+    <title>Workshop Grafika Komputer</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
 </head>
+
 <body>
-    
+
+    <h1>Workshop Grafika Komputer</h1>
+
+    <!-- Semua button untuk memilih project -->
+    <button onclick="tampilkan('contoh_rumah')">Rumah</button>
+    <button onclick="tampilkan('contoh_matahari')">Matahari</button>
+    <button onclick="tampilkan('contoh_pohon')">Pohon</button>
+
+    <br><br>
+
+    <!-- Tempat canvas Rumah -->
+    <div id="contoh_rumah"></div>
+    <!-- Tempat canvas pohon-->
+    <div id="contoh_pohon" style="display: none;"></div>
+    <!-- Tempat canvas Matahari -->
+    <div id="contoh_matahari" style="display: none;"></div>
+
+
+    <!-- Semua file JS -->
+    <script src="./rumah.js"></script>
+    <script src="./pohon.js"></script>
+    <script src="./matahari.js"></script>
+    <script src="./main.js"></script>
+
 </body>
+
 </html>
