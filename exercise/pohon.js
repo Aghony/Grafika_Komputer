@@ -6,36 +6,38 @@ new p5(function (p) {
   p.draw = function () {
     p.background(235);
 
+    // Tanah
     p.noStroke();
-    p.fill(255, 200, 0);
-    p.rect(0, 330, 600, 70);
+    p.fill(120, 180, 90);
+    p.rect(0, 380, 800, 120);
 
+    // Batang
     p.fill(120, 70, 35);
-    p.rect(270, 190, 60, 140);
+    p.rect(360, 200, 80, 190);
 
-    p.fill(50, 160, 70);
+    p.stroke(90, 50, 25);
+    for (let i = 0; i < 3; i++) {
+      let x = 380 + i * 20;
+      p.line(x, 240, x, 100);
+    }
 
+    p.noStroke();
+
+    p.fill(40, 140, 60);
     for (let i = 0; i < 5; i++) {
-      let x = 220 + i * 40;
-      let y = 190;
-
+      let x = 320 + i * 40;
+      let y = 180;
       p.circle(x, y, 100);
     }
 
+    p.fill(60, 180, 80);
     for (let i = 0; i < 3; i++) {
-      let x = 260 + i * 40;
-      let y = 135;
-
-      p.circle(x, y, 100);
+      let x = 360 + i * 40;
+      let y = 125;
+      p.circle(x, y, 90);
     }
 
-    p.stroke(80, 45, 25);
-    p.strokeWeight(4);
-
-    for (let i = 0; i < 3; i++) {
-      let x = 285 + i * 15;
-
-      p.line(x, 220, x, 310);
-    }
+    p.fill(80, 200, 90);
+    p.circle(400, 85, 80);
   };
-}, 'pohon');
+}, "pohon");

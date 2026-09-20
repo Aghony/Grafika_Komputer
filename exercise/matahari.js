@@ -6,26 +6,35 @@ new p5(function (p) {
   p.draw = function () {
     p.background(235);
 
-    // Matahari
-    p.fill(255, 190, 40);
-    p.noStroke();
-    p.circle(300, 200, 100);
+    // Variabel Pusat & Ukuran (Koordinat Dipilih Sendiri di Tengah Canvas)
+    let cx = 400;
+    let cy = 250;
+    let radiusLingkaran = 60;
+    let panjangSinar = 45;
+    let jarakSinar = 20;
 
-    // Sinar Matahari
-    p.stroke(255, 140, 20);
-    p.strokeWeight(5);
+    // Sinar Matahari 
+    p.stroke(240, 100, 25);
+    p.strokeWeight(6);
 
-    for (let i = 0; i < 8; i++) {
-      let angle = (i * p.TWO_PI) / 8;
+    let totalSinar = 12;
+    for (let i = 0; i < totalSinar; i++) {
+      let sudut = (i * p.TWO_PI) / totalSinar;
 
-      let x1 = 300 + p.cos(angle) * 65;
-      let y1 = 200 + p.sin(angle) * 65;
+      // Titik Awal Garis (Di Luar Lingkaran Inti)
+      let x1 = cx + p.cos(sudut) * (radiusLingkaran + jarakSinar);
+      let y1 = cy + p.sin(sudut) * (radiusLingkaran + jarakSinar);
 
-      let x2 = 300 + p.cos(angle) * 100;
-      let y2 = 200 + p.sin(angle) * 100;
+      // Titik Akhir Garis
+      let x2 = cx + p.cos(sudut) * (radiusLingkaran + jarakSinar + panjangSinar);
+      let y2 = cy + p.sin(sudut) * (radiusLingkaran + jarakSinar + panjangSinar);
 
       p.line(x1, y1, x2, y2);
     }
 
+    // Lingkaran Inti Matahari 
+    p.noStroke();
+    p.fill(255, 220, 0);
+    p.circle(cx, cy, radiusLingkaran * 2);
   };
 }, "matahari");
