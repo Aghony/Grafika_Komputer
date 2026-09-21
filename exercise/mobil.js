@@ -4,79 +4,49 @@ new p5(function (p) {
   };
 
   p.draw = function () {
-    // Canvas & Background Wajib
     p.background(235);
 
-    // 1. Jalan Raya (Menggunakan rect dan line)
+    // Jalan raya
     p.noStroke();
-    p.fill(80); // Warna aspal abu-abu gelap
-    p.rect(0, 340, 800, 160);
+    p.fill(100);
+    p.rect(0, 360, 800, 140);
 
-    // Marka Jalan (Garis Putus-Putus)
+    // Marka jalan
     p.stroke(255);
-    p.strokeWeight(6);
-    for (let i = 0; i < 8; i++) {
-      let x = i * 110 + 20;
-      p.line(x, 420, x + 60, 420);
-    }
-
-    // --- BADAN MOBIL ---
-
-    // 2. Kabin Atas / Atap (Menggunakan rect)
-    p.noStroke();
-    p.fill(40, 120, 200); // Warna biru tua
-    p.rect(260, 190, 280, 80);
-
-    // Kaca Depan & Belakang (Kaca Kiri & Kanan menggunakan rect)
-    p.fill(180, 230, 255); // Warna kaca biru muda
-    p.rect(280, 205, 110, 55); // Kaca belakang
-    p.rect(410, 205, 110, 55); // Kaca depan
-
-    // 3. Body Utama Mobil (Menggunakan rect)
-    p.fill(220, 50, 50); // Warna merah cerah
-    p.rect(180, 260, 440, 90);
-
-    // Lampu Depan & Belakang (Menggunakan ellipse & rect)
-    p.fill(255, 220, 50); // Lampu depan kuning
-    p.ellipse(620, 290, 15, 30);
-
-    p.fill(180, 0, 0); // Lampu belakang merah tua
-    p.rect(180, 280, 10, 30);
-
-    // Gagang Pintu (Menggunakan line)
-    p.stroke(50);
     p.strokeWeight(4);
-    p.line(380, 280, 405, 280);
-    p.line(500, 280, 525, 280);
+    p.line(100, 430, 250, 430);
+    p.line(350, 430, 500, 430);
+    p.line(600, 430, 750, 430);
 
-    // 4. Roda Mobil (Menggunakan minimal 2 circle + detail Velg)
+    // Body mobil (rect)
     p.noStroke();
+    p.fill(220, 50, 50); // Merah
+    p.rect(200, 270, 400, 90);
 
-    // Loop untuk menggambar 2 Roda (Kiri: x=280, Kanan: x=520)
-    for (let i = 0; i < 2; i++) {
-      let posX = 280 + i * 240;
-      let posY = 350;
+    // Kabin / Atap mobil (rect)
+    p.fill(180); // Abu-abu
+    p.rect(280, 200, 240, 70);
 
-      // Ban Luar (Hitam)
-      p.fill(30);
-      p.circle(posX, posY, 90);
+    // Kaca mobil (rect)
+    p.fill(150, 210, 240); // Biru muda
+    p.rect(300, 210, 90, 50);
+    p.rect(410, 210, 90, 50);
 
-      // Velg Luar (Abu-abu terang)
-      p.fill(200);
-      p.circle(posX, posY, 50);
+    // Lampu depan & belakang
+    p.fill(255, 220, 0); // Kuning
+    p.ellipse(600, 300, 15, 25);
 
-      // Baut / Inti Velg (Abu-abu gelap)
-      p.fill(80);
-      p.circle(posX, posY, 20);
+    p.fill(150, 0, 0); // Merah tua
+    p.rect(200, 290, 10, 25);
 
-      // Detail Titik Baut (Menggunakan point)
-      p.stroke(255);
-      p.strokeWeight(4);
-      p.point(posX - 10, posY);
-      p.point(posX + 10, posY);
-      p.point(posX, posY - 10);
-      p.point(posX, posY + 10);
-      p.noStroke();
-    }
+    // Roda mobil (circle)
+    p.fill(30); // Ban hitam
+    p.circle(290, 360, 80);
+    p.circle(510, 360, 80);
+
+    // Velg roda (circle)
+    p.fill(200); // Abu-abu terang
+    p.circle(290, 360, 40);
+    p.circle(510, 360, 40);
   };
 }, "mobil");
